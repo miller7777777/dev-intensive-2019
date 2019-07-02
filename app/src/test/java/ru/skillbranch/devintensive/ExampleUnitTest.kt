@@ -6,7 +6,9 @@ import org.junit.Assert.*
 import ru.skillbranch.devintensive.extensions.TimeUnits
 import ru.skillbranch.devintensive.extensions.add
 import ru.skillbranch.devintensive.extensions.format
-import ru.skillbranch.devintensive.models.User
+import ru.skillbranch.devintensive.extensions.toUserView
+import ru.skillbranch.devintensive.models.*
+import ru.skillbranch.devintensive.utils.Utils
 import java.util.*
 
 /**
@@ -64,5 +66,35 @@ class ExampleUnitTest {
           ${user3.lastVisit?.format()}
           ${user4.lastVisit?.format()}
         """.trimIndent())
+    }
+
+    @Test
+    fun dataq_maping(){
+        val user = User.makeUser("Макеев Михаил")
+        val newUser = user.copy(lastVisit = Date().add(-7, TimeUnits.SECOND))
+        println(newUser)
+        val userView = newUser.toUserView()
+        userView.printMe()
+
+    }
+
+    @Test
+    fun test_abstract_factory(){
+        val user = User.makeUser("Макеев Михаил")
+        val txtMessage = BaseMessage.makeMessage(user, Chat("0"), payload = "any text message", type = "text")
+        val imgMessage = BaseMessage.makeMessage(user, Chat("0"), payload = "any image url", type = "image")
+
+        println(txtMessage.formatMessage())
+        println(imgMessage.formatMessage())
+
+    }
+
+    @Test
+    fun parse_full_name(){
+        val user = User.makeUser(" John")
+        println(user)
+//        println("${user.firstName} ${user.lastName}")
+        println(Utils.toInitials(user.firstName, user.lastName))
+
     }
 }
