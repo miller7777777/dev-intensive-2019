@@ -91,7 +91,7 @@ class ExampleUnitTest {
 
     @Test
     fun parse_full_name(){
-        val user = User.makeUser(" John")
+        val user = User.makeUser(null)
         println(user)
 //        println("${user.firstName} ${user.lastName}")
         println(Utils.toInitials(user.firstName, user.lastName))

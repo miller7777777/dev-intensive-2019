@@ -9,20 +9,20 @@ object Utils {
         val firstName = parts?.getOrNull(0)
         val lastName = parts?.getOrNull(1)
 
-        var fName = "no fistname"
-        var lName = "no lastname"
+        var fName = "null"
+        var lName = "null"
 
-        when{
-            firstName == null -> fName = "no firstname"
-            firstName.trim() == "" -> fName = "no firstname"
-            else -> fName = firstName
+
+
+        if(firstName != null || firstName?.trim() != ""){
+            fName = firstName!!
         }
 
-        when{
-            lastName == null -> lName = "no lastname"
-            lastName.trim() == "" -> lName = "no lastname"
-            else -> lName = lastName
+        if(lastName != null || lastName?.trim() != ""){
+            lName = lastName!!
         }
+
+
 
 //        return Pair(firstName, lastName)
 //        return firstName to lastName
