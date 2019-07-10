@@ -8,22 +8,18 @@ object Utils {
         var firstName = parts?.getOrNull(0)
         var lastName = parts?.getOrNull(1)
 
-        var str = ("k" + fullName).trim().substring(1)
+//        var str = ("k" + fullName).trim().substring(1)
 
-        when(str){
-            ""  -> {firstName = null
-                lastName = null}
-//            " "  -> {firstName = null
+//        when(str){
+//            ""  -> {firstName = null
 //                lastName = null}
-        }
+//        }
 
-
-
-
+        if (fullName == null || fullName.trim().isBlank()) {firstName = null
+        lastName = null}
 
 //        return Pair(firstName, lastName)
         return firstName to lastName
-
     }
 
     fun transliteration(payload: String, divider: String = " "): String {
