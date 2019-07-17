@@ -28,7 +28,15 @@ object Utils {
 
     fun toInitials(firstName: String?, lastName: String?): String? {
 //        TODO(reason = "not implemented")
-        return firstName?.substring(0, 1)+lastName?.substring(0, 1)
+        var initials: String?
+        when{
+            firstName == null -> initials = null
+            (firstName + lastName).isBlank() -> initials = null
+            lastName == null -> initials = firstName.substring(0,1).toUpperCase()
+            else -> initials = (firstName.substring(0,1) + lastName.substring(0, 1)).toUpperCase()
+
+        }
+        return initials
 
     }
 }

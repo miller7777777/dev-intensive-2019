@@ -97,4 +97,10 @@ class ExampleUnitTest {
 //        println(Utils.toInitials(user.firstName, user.lastName))
 
     }
+
+    @Test
+    fun toInitials(){
+        val user = User.makeUser("john doe")
+        println(Utils.toInitials(user.firstName, user.lastName))
+    }
 }
