@@ -100,7 +100,13 @@ class ExampleUnitTest {
 
     @Test
     fun toInitials(){
-        val user = User.makeUser("john doe")
+        val user = User.makeUser("Михаил")
         println(Utils.toInitials(user.firstName, user.lastName))
+    }
+
+    @Test
+    fun toInitials2(){
+
+        println(Utils.toInitials(null, "M"))
     }
 }

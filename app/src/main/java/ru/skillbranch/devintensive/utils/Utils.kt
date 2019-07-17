@@ -35,6 +35,12 @@ object Utils {
             else -> initials = (firstName.substring(0,1) + lastName.substring(0, 1)).toUpperCase()
 
         }
+
+        if (firstName == null){
+            if (lastName != null){
+                initials = lastName.substring(0, 1).toUpperCase()
+            }
+        }
         return initials
 
     }
