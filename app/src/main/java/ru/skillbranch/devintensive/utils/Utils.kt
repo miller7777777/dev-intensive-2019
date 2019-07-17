@@ -27,7 +27,6 @@ object Utils {
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
-//        TODO(reason = "not implemented")
         var initials: String?
         when{
             firstName == null -> initials = null
