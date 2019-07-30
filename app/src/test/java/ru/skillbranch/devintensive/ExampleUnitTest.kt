@@ -3,10 +3,7 @@ package ru.skillbranch.devintensive
 import org.junit.Test
 
 import org.junit.Assert.*
-import ru.skillbranch.devintensive.extensions.TimeUnits
-import ru.skillbranch.devintensive.extensions.add
-import ru.skillbranch.devintensive.extensions.format
-import ru.skillbranch.devintensive.extensions.toUserView
+import ru.skillbranch.devintensive.extensions.*
 import ru.skillbranch.devintensive.models.*
 import ru.skillbranch.devintensive.utils.Utils
 import java.util.*
@@ -107,6 +104,14 @@ class ExampleUnitTest {
     @Test
     fun toInitials2(){
 
-        println(Utils.toInitials(null, "M"))
+        println(Utils.toInitials(" ", ""))
+    }
+
+    @Test
+    fun humanizeDiffTest(){
+
+//        val date =  Date().add(7, TimeUnits.DAY)
+        val x = Date().add(-2, TimeUnits.HOUR)
+        println(Date().humanizeDiff(x))
     }
 }

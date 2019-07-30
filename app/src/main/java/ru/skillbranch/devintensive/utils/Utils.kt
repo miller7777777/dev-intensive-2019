@@ -28,18 +28,26 @@ object Utils {
 
     fun toInitials(firstName: String?, lastName: String?): String? {
         var initials: String?
+//        when{
+//            firstName == null -> initials = null
+//            (firstName + lastName).isBlank() -> initials = null
+//            lastName == null -> initials = firstName.substring(0,1).toUpperCase()
+//            else -> initials = (firstName.substring(0,1) + lastName.substring(0, 1)).toUpperCase()
+//
+//        }
+//
+//        if (firstName == null){
+//            if (lastName != null){
+//                initials = lastName.substring(0, 1).toUpperCase()
+//            }
+//        }
+
         when{
-            firstName == null -> initials = null
             (firstName + lastName).isBlank() -> initials = null
-            lastName == null -> initials = firstName.substring(0,1).toUpperCase()
-            else -> initials = (firstName.substring(0,1) + lastName.substring(0, 1)).toUpperCase()
-
-        }
-
-        if (firstName == null){
-            if (lastName != null){
-                initials = lastName.substring(0, 1).toUpperCase()
-            }
+            (firstName == null) and (lastName == null) -> initials = null
+            (firstName == null) and (lastName != null) -> initials = lastName!!.substring(0, 1).toUpperCase()
+            (firstName != null) and (lastName == null) -> initials = firstName!!.substring(0,1).toUpperCase()
+            else -> initials = (firstName!!.substring(0,1) + lastName!!.substring(0, 1)).toUpperCase()
         }
         return initials
 
